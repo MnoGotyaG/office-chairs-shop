@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация — ComfortOffice</title>
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <form id="registerForm" class="auth-form">
+            <h2>Регистрация</h2>
+            <div class="form-group">
+                <label>Имя:</label>
+                <input type="text" id="registerName" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+            <div class="form-group">
+                <label>Пароль:</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+            <p>Уже есть аккаунт? <a href="/login.html">Войдите</a></p>
+        </form>
+    </div>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

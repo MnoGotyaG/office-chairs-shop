@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет — ComfortOffice</title>
+    <link rel="stylesheet" href="/css/account.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Общая шапка сайта -->
+    </header>
+
+    <main class="account-container">
+        <div class="profile-section">
+            <h2>Профиль</h2>
+            <div class="user-info">
+                <p>Имя: <span id="userName"></span></p>
+                <p>Email: <span id="userEmail"></span></p>
+            </div>
+            <button id="logoutBtn">Выйти</button>
+        </div>
+
+        <div class="orders-section">
+            <h2>История заказов</h2>
+            <div class="orders-list" id="ordersList">
+                <!-- Заказы будут загружаться через JS -->
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/account.js"></script>
+</body>
+</html>

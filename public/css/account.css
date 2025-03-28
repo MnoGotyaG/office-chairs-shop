@@ -1,0 +1,223 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f9f9f9;
+}
+
+/* Контейнер */
+.account-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2%;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+}
+
+/* Боковая панель */
+.account-sidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.user-name {
+    color: #2A3950;
+    margin-bottom: 0.5rem;
+}
+
+.user-email {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.account-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-item {
+    background: none;
+    border: none;
+    padding: 1rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #666;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background: #f8f8f8;
+    color: #2A3950;
+}
+
+.menu-item.active {
+    background: #F4B266;
+    color: white;
+}
+
+/* Основной контент */
+.account-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.profile-form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.save-btn {
+    background: #2A3950;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    opacity: 0.9;
+}
+
+/* Стили для заказов */
+.orders-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.order-card {
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-card:hover {
+    border-color: #F4B266;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.order-status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.status-completed {
+    background: #e8f5e9;
+    color: #4CAF50;
+}
+
+.status-processing {
+    background: #fff3e0;
+    color: #FF9800;
+}
+
+.order-details {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .account-container {
+        grid-template-columns: 1fr;
+    }
+
+    .account-sidebar {
+        order: 2;
+    }
+}
+
+.account-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+}
+
+.profile-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.orders-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#logoutBtn {
+    background: #F4B266;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.order-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}

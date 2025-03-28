@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfortOffice — Эргономичные кресла для работы</title>
+    <link rel="stylesheet" href="/css/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">ComfortOffice</div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/cart">Корзина</a></li>
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-container">
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> / 
+            <a href="/catalog">Каталог</a> / 
+            <span id="productBreadcrumb"></span>
+        </div>
+
+        <div class="product-details">
+            <!-- Левая колонка: Галерея -->
+            <div class="product-gallery">
+                <img id="mainImage" src="/images/placeholder.jpg" alt="Основное изображение" class="main-image">
+                <div class="thumbnails" id="productGallery"></div>
+            </div>
+
+            <!-- Правая колонка: Информация -->
+            <div class="product-info">
+                <h1 id="productName">Загрузка...</h1>
+                
+                <div class="price-block">
+                    <span class="price" id="productPrice">—</span>
+                    <button class="add-to-cart" id="addToCartBtn">🛒 Добавить в корзину</button>
+                </div>
+
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Категория:</span>
+                        <span id="productCategory" class="spec-value">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Материал:</span>
+                        <span id="productMaterial" class="spec-value">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Гарантия:</span>
+                        <span id="productWarranty" class="spec-value">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Размеры:</span>
+                        <span id="productDimensions" class="spec-value">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Вес:</span>
+                        <span id="productWeight" class="spec-value">—</span>
+                    </div>
+                </div>
+
+                <div class="description-block">
+                    <h3>Описание</h3>
+                    <p id="productDescription">Загрузка описания...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/product.js"></script>
+</body>
+</html>

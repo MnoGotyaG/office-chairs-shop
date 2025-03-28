@@ -1,0 +1,169 @@
+/* order-success.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f9f9f9;
+}
+
+/* Стили для шапки */
+.header {
+    background: #2A3950;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Скрыть счётчик корзины на этой странице */
+.nav-links .cart-counter {
+    display: none;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Скрыть навигацию на мобильных */
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+
+.success-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 5%;
+    min-height: 60vh;
+}
+
+.success-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1.5rem;
+    animation: bounce 1s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.success-card h1 {
+    color: #2A3950;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.order-details {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-radius: 12px;
+}
+
+.order-number, .order-total {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+.order-number span, .order-total span {
+    color: #2A3950;
+    font-weight: 500;
+}
+
+.order-products {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.order-products div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.continue-shopping {
+    display: inline-block;
+    background: #F4B266;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: 0.3s;
+}
+
+.continue-shopping:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.success-message {
+    color: #666;
+    margin: 1.5rem 0;
+    line-height: 1.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .success-card {
+        padding: 2rem;
+    }
+    
+    .success-icon {
+        font-size: 3rem;
+    }
+}

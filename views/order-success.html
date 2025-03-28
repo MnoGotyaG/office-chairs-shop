@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ оформлен — ComfortOffice</title>
+    <link rel="stylesheet" href="/css/order-success.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">ComfortOffice</div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/cart">Корзина</a></li>
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="success-container">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h1>Заказ успешно оформлен!</h1>
+            <div class="order-details">
+                <p class="order-number">Номер заказа: <span id="orderId"></span></p>
+                <p class="order-total">Сумма заказа: <span id="orderTotal"></span></p>
+            </div>
+            <div class="order-products" id="orderProducts"></div>
+            <p class="success-message">
+                Наш менеджер свяжется с вами в течение 15 минут для подтверждения заказа.
+            </p>
+            <a href="/catalog" class="continue-shopping">Продолжить покупки</a>
+        </div>
+    </main>
+
+    <script src="/js/order-success.js"></script>
+</body>
+</html>
