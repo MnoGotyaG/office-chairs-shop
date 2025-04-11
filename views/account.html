@@ -3,27 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Личный кабинет — ComfortOffice</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/account.css">
 </head>
 <body>
     <header class="header">
-        <!-- Общая шапка сайта -->
+        <nav class="navbar">
+            <div class="logo">ComfortOffice</div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog" class="active">Каталог</a></li>
+                <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="account-container">
         <div class="profile-section">
-            <h2>Профиль</h2>
-            <div class="user-info">
-                <p>Имя: <span id="userName"></span></p>
-                <p>Email: <span id="userEmail"></span></p>
+            <h2>Ваш профиль</h2>
+            
+            <!-- Форма редактирования данных -->
+            <form id="updateProfileForm">
+                <div class="form-group">
+                    <label>Имя:</label>
+                    <input type="text" id="updateName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="updateEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон:</label>
+                    <input type="tel" id="updatePhone" pattern="\+7\d{10}">
+                </div>
+                <button type="submit" class="save-btn">Сохранить изменения</button>
+            </form>
+
+            <!-- Смена пароля -->
+            <div class="password-section">
+                <h3>Смена пароля</h3>
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label>Старый пароль:</label>
+                        <input type="password" id="oldPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Новый пароль:</label>
+                        <input type="password" id="newPassword" required minlength="8">
+                    </div>
+                    <div class="form-group">
+                        <label>Подтвердите пароль:</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="save-btn">Изменить пароль</button>
+                </form>
             </div>
-            <button id="logoutBtn">Выйти</button>
+
+            <!-- Кнопка выхода -->
+            <button id="logoutBtn" class="cta-button">Выйти из аккаунта</button>
         </div>
 
         <div class="orders-section">
             <h2>История заказов</h2>
-            <div class="orders-list" id="ordersList">
-                <!-- Заказы будут загружаться через JS -->
+            <div id="ordersList" class="orders-list">
+                <!-- Заказы будут загружены через JS -->
             </div>
         </div>
     </main>

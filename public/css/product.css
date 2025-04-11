@@ -192,6 +192,23 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Общие стили для шапки */
+.nav-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.cart-counter {
+    background: #f4b266;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-left: 0; /* Убираем отступ слева */
+    order: 1; /* Перемещаем счетчик после текста */
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .product-details {
@@ -217,3 +234,5 @@ body {
         width: 100%;
     }
 }
+
+

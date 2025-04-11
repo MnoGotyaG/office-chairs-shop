@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComfortOffice — Эргономичные кресла для работы</title>
+    <title>Каталог — ComfortOffice</title>
     <link rel="stylesheet" href="/css/catalog.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <title>Каталог кресел — ComfortOffice</title>
 </head>
 <body>
-    <!-- Повторяем header из index.html -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">ComfortOffice</div>
             <ul class="nav-links">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/catalog">Каталог</a></li>
-                <li><a href="/cart">Корзина</a></li>
+                <li><a href="/catalog" class="active">Каталог</a></li>
+                <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
                 <li><a href="/account">Личный кабинет</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="catalog-container">
-        <div class="filters-sidebar">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Поиск по названию...">
+        <!-- Фильтры -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <input type="text" id="searchInput" placeholder="Поиск...">
             </div>
 
             <div class="filter-section">
                 <h3>Сортировка</h3>
-                <select id="sortSelect" class="filter-select">
+                <select id="sortSelect">
                     <option value="price_asc">По возрастанию цены</option>
                     <option value="price_desc">По убыванию цены</option>
                     <option value="rating">По рейтингу</option>
@@ -39,36 +39,29 @@
             <div class="filter-section">
                 <h3>Категории</h3>
                 <div class="category-filter">
-                    <label>
-                        <input type="checkbox" value="ergonomic"> Эргономичные
-                    </label>
-                    <label>
-                        <input type="checkbox" value="executive"> Для руководителей
-                    </label>
-                    <label>
-                        <input type="checkbox" value="gaming"> Игровые
-                    </label>
+                    <label><input type="checkbox" value="ergonomic"> Эргономичные</label>
+                    <label><input type="checkbox" value="executive"> Для руководителей</label>
+                    <label><input type="checkbox" value="gaming"> Игровые</label>
                 </div>
             </div>
 
             <div class="filter-section">
-                <h3>Цена</h3>
+                <h3>Цена (₽)</h3>
                 <div class="price-range">
-                    <input type="number" id="minPrice" placeholder="от 10 000">
-                    <input type="number" id="maxPrice" placeholder="до 50 000">
+                    <input type="number" id="minPrice" placeholder="От">
+                    <input type="number" id="maxPrice" placeholder="До">
                 </div>
             </div>
-        </div>
+        </aside>
 
-        <div class="products-list">
+        <!-- Список товаров -->
+        <section class="products-section">
             <div class="products-grid" id="productsContainer">
-                <!-- Товары будут загружаться через JavaScript -->
+                <!-- Товары загружаются через JS -->
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Повторяем footer из index.html -->
-    
     <script src="/js/catalog.js"></script>
 </body>
 </html>

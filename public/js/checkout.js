@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Элементы DOM
     const checkoutForm = document.getElementById('checkoutForm');
     const orderItemsContainer = document.getElementById('orderItems');
     const totalPriceElement = document.querySelector('.total-price');
     const submitButton = document.querySelector('.submit-order');
-
-    // Загрузка данных корзины
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Если корзина пуста, перенаправляем
+
+    // Проверка наличия товаров в корзине
     if (cart.length === 0) {
         window.location.href = '/cart';
         return;
+    }
+
+    // Автозаполнение данных пользователя
+    if (currentUser) {
+        checkoutForm.querySelector('[name="name"]').value = currentUser.name || '';
+        checkoutForm.querySelector('[name="email"]').value = currentUser.email || '';
+        checkoutForm.querySelector('[name="phone"]').value = currentUser.phone || '';
     }
 
     // Рендер товаров в заказе
@@ -24,42 +29,58 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // Расчет и отображение итоговой суммы
+    // Обновление общей суммы заказа
     function updateTotalPrice() {
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         totalPriceElement.textContent = `${total.toLocaleString()} ₽`;
     }
 
-    // Отправка данных заказа
+    // Отправка заказа на сервер
     async function submitOrder(formData) {
         try {
             submitButton.disabled = true;
             submitButton.textContent = 'Отправка...';
 
             const orderData = {
-                customer: Object.fromEntries(formData),
-                items: cart,
-                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-                timestamp: new Date().toISOString()
+                user_id: currentUser?.id || null,
+                items: cart.map(item => ({
+                    product_id: item.id,
+                    quantity: item.quantity,
+                    price: item.price
+                })),
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
             };
 
-            // Пример запроса к API
+            console.log('Отправка заказа:', orderData); // Логирование отправляемых данных
+
             const response = await fetch('/api/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(orderData)
+                body: JSON.stringify({
+                    user_id: currentUser?.id || null,
+                    items: cart.map(item => ({
+                        product_id: item.id,
+                        quantity: item.quantity,
+                        price: Number(item.price) // Явное преобразование цены
+                    })),
+                    total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+                })
             });
 
-            if (!response.ok) throw new Error('Ошибка сервера');
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.error || 'Ошибка сервера');
+            }
 
-            // Очистка корзины и перенаправление
+            const data = await response.json();
+            console.log('Ответ сервера:', data); // Логирование ответа сервера
+
             localStorage.removeItem('cart');
-            localStorage.setItem('lastOrder', JSON.stringify(orderData));
-            window.location.href = '/order-success';
+            window.location.href = `/order-success?orderId=${data.orderId}`;
 
         } catch (error) {
             console.error('Ошибка:', error);
-            alert('Не удалось оформить заказ. Попробуйте ещё раз.');
+            alert(error.message || 'Не удалось оформить заказ');
         } finally {
             submitButton.disabled = false;
             submitButton.textContent = 'Подтвердить заказ';
@@ -74,19 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработчик отправки формы
     checkoutForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
         const formData = new FormData(checkoutForm);
-        const phone = formData.get('phone');
 
+        const phone = formData.get('phone');
         if (!validatePhone(phone)) {
-            alert('Введите корректный телефон в формате +7XXXXXXXXXX');
+            alert('Введите телефон в формате +7XXXXXXXXXX');
             return;
         }
 
         await submitOrder(formData);
     });
 
-    // Инициализация
+    // Инициализация страницы
     renderOrderItems();
     updateTotalPrice();
 });

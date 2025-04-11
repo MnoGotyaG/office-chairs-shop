@@ -36,11 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Обновление счетчика в шапке
-    function updateCartCounter() {
+    /*function updateCartCounter() {
         const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
         cartCounter.textContent = totalItems;
         cartCounter.style.visibility = totalItems > 0 ? 'visible' : 'hidden';
+    }*/
+    // Обновление счетчика корзины
+function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const counter = document.querySelector('.cart-counter');
+    
+    if (counter) {
+        counter.textContent = totalItems;
+        counter.style.display = totalItems > 0 ? 'flex' : 'none';
     }
+}
 
     // Обработчики событий
     function attachEventListeners() {
