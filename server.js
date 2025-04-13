@@ -1,3 +1,9 @@
+import('node-fetch').then(fetch => {
+    fetch.default('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => console.log('🛰 Внешний IP-адрес:', data.ip));
+});
+
 const fs = require('fs');
 const express = require('express');
 const path = require('path');

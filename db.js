@@ -1,14 +1,35 @@
 const mysql = require('mysql2/promise');
 
-const pool = mysql.createPool({
+/*const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'vfr2012cbv',
     database: 'office_chairs_shop',
     waitForConnections: true,
     connectionLimit: 10
+    charset: 'utf8mb4'
+});
+*/
+const pool = mysql.createPool({
+    //host: 'localhost', // Для сайта на Beget
+    host: 'maksismart.beget.tech', // Для внешних подключений
+    user: 'maksismart_1', // Имя пользователя = имя БД
+    password: 'Vfr2012cbv+', // Пароль из настроек БД
+    database: 'maksismart_1', // Имя БД
+    waitForConnections: true,
+    connectionLimit: 10,
+    charset: 'utf8mb4' // Обязательно укажите кодировку
 });
 
+/*const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    charset: 'utf8mb4'
+});*/
 // Проверка подключения
 (async () => {
     try {
