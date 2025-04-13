@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('updateName').value = currentUser.name;
     document.getElementById('updateEmail').value = currentUser.email;
     document.getElementById('updatePhone').value = currentUser.phone || '';
+    document.getElementById('updateDateOfBirth').value = currentUser.date_of_birth || '';
+    document.getElementById('updateCity').value = currentUser.city || '';
 
     // Загрузка заказов
     // Загрузка заказов
@@ -23,7 +25,7 @@ try {
     
     // Создаем HTML для всех заказов асинхронно
     const ordersHTML = await Promise.all(orders.map(async (order) => {
-        // Запрашиваем товары для каждого заказа
+        // Запрашиваем товары для каждого заказа 
         const itemsResponse = await fetch(`/api/orders/${order.id}/items`);
         const items = await itemsResponse.json();
 
@@ -72,7 +74,9 @@ try {
             ...currentUser,
             name: document.getElementById('updateName').value,
             email: document.getElementById('updateEmail').value,
-            phone: document.getElementById('updatePhone').value || null
+            phone: document.getElementById('updatePhone').value || null,
+            date_of_birth: document.getElementById('updateDateOfBirth').value || null,
+            city: document.getElementById('updateCity').value || null
         };
 
         try {

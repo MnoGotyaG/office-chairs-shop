@@ -1,0 +1,52 @@
+<!-- views/order-history.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>История заказов</title>
+    <link rel="stylesheet" href="/css/order-history.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="navbar">
+        <div class="logo">ComfortOffice</div>
+        <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <!-- Админское меню -->
+            <li id="adminNavItem" style="display: none;">
+                <a href="/stats">Статистика</a>
+                <a href="/order-history">История заказов</a>
+            </li>
+            <li><a href="/catalog">Каталог</a></li>
+            <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
+            <li><a href="/account">Личный кабинет</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="order-history-container">
+        <div class="orders-list">
+            <div class="filters">
+                <select id="statusFilter">
+                    <option value="">Все статусы</option>
+                    <option value="pending">В обработке</option>
+                    <option value="completed">Завершённые</option>
+                    <option value="canceled">Отменённые</option>
+                </select>
+            </div>
+
+            <div class="orders" id="ordersContainer">
+                <!-- Заказы будут загружены здесь -->
+            </div>
+        </div>
+
+        <div class="order-details" id="orderDetails">
+            <!-- Детали заказа будут отображаться здесь -->
+        </div>
+    </main>
+    <script src="/js/analytics.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script src="/js/order-history.js"></script>
+</body>
+</html>

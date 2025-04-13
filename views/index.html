@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComfortOffice — Эргономичные кресла для работы</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +14,12 @@
             <div class="logo">ComfortOffice</div>
             <ul class="nav-links">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/catalog" class="active">Каталог</a></li>
+                <!-- Добавьте этот блок -->
+                <li id="adminNavItem" style="display: none;">
+                    <a href="/stats">Статистика</a>
+                    <a href="/order-history">История заказов</a>
+                </li>
+                <li><a href="/catalog">Каталог</a></li>
                 <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
                 <li><a href="/account">Личный кабинет</a></li>
             </ul>
@@ -44,19 +50,19 @@
             </div>
         </section>
 
-        <section class="popular-products">
+        <!-- <section class="popular-products">
             <h2>Популярные модели</h2>
-            <div class="products-grid">
+            <div class="products-grid"> -->
                 <!-- Пример товара -->
-                <div class="product-card">
+                <!-- <div class="product-card">
                     <img src="/images/chair1.jpg" alt="Кресло ErgoMaster Pro">
                     <h3>ErgoMaster Pro</h3>
                     <p class="price">24 990 ₽</p>
                     <button class="add-to-cart">В корзину</button>
-                </div>
+                </div> -->
                 <!-- Добавьте ещё 2-3 аналогичных блока -->
-            </div>
-        </section>
+            <!-- </div>
+        </section> -->
     </main>
 
     <footer class="footer">
@@ -73,8 +79,22 @@
             </div>
         </div>
     </footer>
+    <script src="/js/analytics.js"></script>
 
     <script src="/js/main.js"></script>
     <script src="/js/test-data.js"></script>
+
+    <div id="cookieConsent" class="cookie-banner">
+    <div class="cookie-content">
+        <p>Мы используем cookies для анализа трафика. 
+            <a href="/privacy-policy" target="_blank">Политика конфиденциальности</a>
+        </p>
+        <div class="cookie-buttons">
+            <button id="acceptCookies" class="cookie-btn accept">Принять</button>
+            <button id="rejectCookies" class="cookie-btn reject">Отклонить</button>
+        </div>
+    </div>
+</div>
+    
 </body>
 </html>

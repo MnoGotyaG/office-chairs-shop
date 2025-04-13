@@ -63,7 +63,18 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
 
         // Сохраняем только базовые данные
         localStorage.setItem('currentUser', JSON.stringify(data.user));
-        window.location.href = '/account';
+
+        // Обновляем интерфейс
+        if (typeof window.updateAdminUI === 'function') {
+            window.updateAdminUI();
+        } else {
+            console.error('Функция updateAdminUI не найдена!');
+        }
+
+        // Перенаправляем через 500 мс для применения стилей
+        setTimeout(() => {
+            window.location.href = '/account';
+        }, 500);
         
     } catch (error) {
         showError(error.message);

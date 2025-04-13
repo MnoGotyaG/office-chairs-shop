@@ -189,6 +189,18 @@ body {
     order: 1; /* Перемещаем счетчик после текста */
 }
 
+/* Стили для админ-ссылки */
+#adminLink {
+    display: none;
+    background: #2a3950;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+#adminLink a {
+    color: #fff !important;
+}
+
 
 /* Страница товара */
 /*.product-container {

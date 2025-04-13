@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика продаж</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/stats.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">ComfortOffice</div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li id="adminNavItem" style="display: none;">
+                    <a href="/stats">Статистика</a>
+                    <a href="/order-history">История заказов</a>
+                </li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="stats-container">
+        <h1>Статистика продаж</h1>
+        
+        <div class="filters">
+    <select id="periodSelect" class="period-select">
+        <option value="day">За день</option>
+        <option value="week" selected>За неделю</option>
+        <option value="month">За месяц</option>
+        <option value="year">За год</option>
+        <option value="all">За все время</option>
+    </select>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>Общая выручка</h3>
+        <p id="totalSales">0 ₽</p>
+    </div>
+    
+    <div class="stat-card">
+        <h3>Средний чек</h3>
+        <p id="averageOrder">0 ₽</p>
+    </div>
+</div>
+
+<div class="chart-section">
+    <canvas id="salesChart"></canvas>
+</div>
+
+<div class="popular-products">
+    <h3>Рейтинг товаров</h3>
+    <ul id="popularProducts"></ul>
+</div>
+<div class="stats-section">
+    <h2>Статистика посещений</h2>
+    
+    <div class="visits-cards">
+        <!-- Карточка общих посещений -->
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+                <div class="stat-value" id="totalVisits">0</div>
+                <div class="stat-label">Всего посещений</div>
+            </div>
+        </div>
+
+        <!-- Карточка уникальных посетителей -->
+        <div class="stat-card">
+            <div class="stat-icon">🆔</div>
+            <div class="stat-content">
+                <div class="stat-value" id="uniqueVisitors">0</div>
+                <div class="stat-label">Уникальные посетители</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Популярные страницы -->
+    <div class="stats-block">
+        <h3>Популярные страницы</h3>
+        <div id="popularPages" class="pages-list"></div>
+    </div>
+
+    <!-- Устройства -->
+    <div class="stats-block">
+        <h3>Устройства</h3>
+        <div id="devicesChart" class="chart-container">
+            <canvas id="devicesPieChart"></canvas>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <script src="/js/analytics.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script src="/js/stats.js"></script>
+</body>
+</html>

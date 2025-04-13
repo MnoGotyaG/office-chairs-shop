@@ -13,6 +13,10 @@
             <div class="logo">ComfortOffice</div>
             <ul class="nav-links">
                 <li><a href="/">Главная</a></li>
+                <li id="adminNavItem" style="display: none;">
+                    <a href="/stats">Статистика</a>
+                    <a href="/order-history">История заказов</a>
+                </li>
                 <li><a href="/catalog" class="active">Каталог</a></li>
                 <li><a href="/cart">Корзина <span class="cart-counter">0</span></a></li>
                 <li><a href="/account">Личный кабинет</a></li>
@@ -61,7 +65,22 @@
             </div>
         </section>
     </main>
+    <script src="/js/analytics.js"></script>
+    <script src="/js/main.js"></script>
 
     <script src="/js/catalog.js"></script>
+
+    <div id="cookieConsent" class="cookie-banner">
+    <div class="cookie-content">
+        <p>Мы используем cookies для анализа трафика. 
+            <a href="/privacy-policy" target="_blank">Политика конфиденциальности</a>
+        </p>
+        <div class="cookie-buttons">
+            <button id="acceptCookies" class="cookie-btn accept">Принять</button>
+            <button id="rejectCookies" class="cookie-btn reject">Отклонить</button>
+        </div>
+    </div>
+</div>
+    
 </body>
 </html>

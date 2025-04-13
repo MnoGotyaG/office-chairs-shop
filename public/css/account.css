@@ -463,3 +463,15 @@ body {
     color: #2A3950;
     font-size: 1.1rem;
 }
+
+/* Стили для админ-ссылки */
+#adminLink {
+    display: none;
+    background: #2a3950;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+#adminLink a {
+    color: #fff !important;
+}
