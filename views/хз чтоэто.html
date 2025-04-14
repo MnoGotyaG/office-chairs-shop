@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика продаж — ComfortOffice</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/stats.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <!-- Навигация (добавить пункт для админа) -->
+        <nav class="navbar">
+            <div class="logo">ComfortOffice</div>
+            <ul class="nav-links">
+                <li><a href="/stats" class="active">Статистика</a></li>
+                <!-- остальные пункты -->
+            </ul>
+        </nav>
+    </header>
+
+    <main class="stats-container">
+        <h1>Статистика продаж</h1>
+        
+        <div class="filters">
+            <select id="periodSelect">
+                <option value="day">За день</option>
+                <option value="week">За неделю</option>
+                <option value="month">За месяц</option>
+            </select>
+        </div>
+
+        <div class="charts">
+            <div class="chart-card">
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <canvas id="trafficChart"></canvas>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>Общая выручка</h3>
+                <p id="totalRevenue">0 ₽</p>
+            </div>
+            <div class="stat-box">
+                <h3>Средний чек</h3>
+                <p id="averageOrder">0 ₽</p>
+            </div>
+            <div class="stat-box">
+                <h3>Посетители</h3>
+                <p id="totalVisitors">0</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/stats.js"></script>
+</body>
+</html>

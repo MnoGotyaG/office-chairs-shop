@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 headers: { 'X-User-Data': userData }
             });
 
-            //console.log('Статистика response:', response);
+            console.log('Статистика response:', response);
             
             if (!response.ok) {
                 const err = await response.json();
@@ -39,6 +39,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Обновление данных о продажах
             elements.total.textContent = `${data.sales.total.toLocaleString('ru-RU')} ₽`;
             elements.average.textContent = `${Math.round(data.sales.averageOrder).toLocaleString('ru-RU')} ₽`;
+            const productsList = document.getElementById('popularProducts');
+productsList.innerHTML = data.sales.popularProducts
+  .map((product, index) => `
+    <li class="product-item">
+      <span class="rank">${index + 1}.</span>
+      <span class="product-name">${product.name}</span>
+      <span class="sales-count">${product.total_sold} шт.</span>
+    </li>
+  `).join('');
             
             // Обновление статистики посещений
             document.getElementById('totalVisits').textContent = data.analytics.totalVisits.toLocaleString();
